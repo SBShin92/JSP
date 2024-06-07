@@ -13,11 +13,28 @@
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>himedi.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
   </filter>
+  <filter>
+    <filter-name>LoggingFilter</filter-name>
+    <filter-class>himedi.filter.LoggingFilter</filter-class>
+  </filter>
+  
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>LoggingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+
+
 
   <!-- Servlet Context로 받을 parameter -->
   <!-- Context Param -->

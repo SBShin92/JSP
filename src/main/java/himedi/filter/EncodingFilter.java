@@ -20,6 +20,11 @@ public class EncodingFilter implements Filter {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		logger.info("[EncodingFilter] init");
 		Filter.super.init(filterConfig);
+		String encodingParam = filterConfig.getInitParameter("encoding");
+		if (encodingParam != null) {
+			encoding = encodingParam;
+			logger.info("**encoding 방식 로드**:  " + encoding);
+		}
 	}
 
 	@Override
