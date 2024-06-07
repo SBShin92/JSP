@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import java.util.logging.Logger;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,16 +15,29 @@ import jakarta.servlet.http.HttpServletResponse;
 public class HelloServlet extends HttpServlet {
 
 	private static final Logger logger = Logger.getLogger("HelloServlet");
+	private String dbUser;
+	private String dbPass;
+	private String appName;
+	
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		logger.info("[LifeCycle]: init");
 		super.init(config);
+		
+		ServletContext servletContext = getServletContext();
+		
+		dbUser = servletContext.getInitParameter("dbUser");
+		dbPass = servletContext.getInitParameter("dbPass");
+		appName = servletContext.getInitParameter("appName");
+		
+		logger.info("user?: " + dbUser);
+		logger.info("pass?: " + dbPass);
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		logger.info("[LifeCycle]: service");
+		logger.info("[LifeCycle]: service");		
 		super.service(req, resp);
 	}
 
@@ -38,6 +52,14 @@ public class HelloServlet extends HttpServlet {
 			name = "Anonymous";
 		}
 		PrintWriter out = resp.getWriter();
+		ServletConfig config = getServletConfig();
+		
+		String servletName = config.getInitParameter("servletName");
+		String servletDesc = config.getInitParameter("description");
+		
+		out.println("<h1>app name? : " + appName + "</h1>");
+		out.println("<p>servletName: " + servletName + "</p>");
+		out.println("<p>description: " + servletDesc + "</p>");
 		out.println("<h1>hi Servlet</h1>");
 		out.println("<p>하잉 " + name + "</p>");
 	}
@@ -45,6 +67,8 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		logger.info("[LifeCycle]: doPost");
+		if ("on".equals(req.getParameter("error")))
+			throw new ServletException("***myExceptText***");
 		
 		// POST 요청으로 전달받은 데이터 목록 출력
 		resp.setContentType("text/html; charset=UTF-8");
@@ -55,6 +79,8 @@ public class HelloServlet extends HttpServlet {
 		
 		Enumeration<String> params = req.getParameterNames();
 		out.println("<ul>");
+		
+			
 		while (params.hasMoreElements()) {
 			String paramName = params.nextElement();
 			out.println("<li>" + paramName + " : " + req.getParameter(paramName) + "</li>");
