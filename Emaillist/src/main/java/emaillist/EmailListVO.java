@@ -1,20 +1,35 @@
 package emaillist;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
-public class EmaillistVO {
+public class EmailListVO {
 	private Long no;
 	private String lastName;
 	private String firstName;
 	private String email;
-	private Date created_at;
+	private Date createdAt;
 	
+	public EmailListVO() {
+		super();
+	}
+
+	public EmailListVO(Long no, String lastName, String firstName, String email, Date createdAt) {
+		super();
+		this.no = no;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.createdAt = createdAt;
+	}
+	
+	public EmailListVO(String lastName, String firstName, String email) {
+		super();
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+	}
+
 	public Long getNo() {
 		return no;
 	}
@@ -39,11 +54,11 @@ public class EmaillistVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getCreated_at() {
-		return created_at;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	
 	@Override
@@ -58,13 +73,13 @@ public class EmaillistVO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		EmaillistVO other = (EmaillistVO) obj;
+		EmailListVO other = (EmailListVO) obj;
 		return Objects.equals(email, other.email);
 	}
 	@Override
 	public String toString() {
 		return "EmaillistVO [no=" + no + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
-				+ ", created_at=" + created_at + "]";
+				+ ", createdAt=" + createdAt + "]";
 	}
 	
 	
