@@ -28,7 +28,7 @@
       </div>
 	</div>
 	<div id="footer">
-      <p>Copyright(c) 2019 남승균 All rights reserved. </p>
+      <p>Copyright(c) 2024 신상범 All rights reserved. </p>
 	</div>
   </div>
 </body>
