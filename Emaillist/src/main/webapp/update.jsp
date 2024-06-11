@@ -13,9 +13,13 @@
 
 	EmailListDAO dao = new EmailListDAOOracleImpl(dbuser, dbpass);
 	EmailListVO vo = dao.get(no);
+	
+	vo.setFirstName(request.getParameter("fn"));
+	vo.setLastName(request.getParameter("ln"));
+	vo.setEmail(request.getParameter("email"));
+	
 	boolean success = dao.update(vo);
 	
-
 	if (success)
 		response.sendRedirect(request.getContextPath() + "/index.jsp");
 	else {

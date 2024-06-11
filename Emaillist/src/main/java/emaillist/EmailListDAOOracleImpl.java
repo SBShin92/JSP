@@ -137,9 +137,8 @@ public class EmailListDAOOracleImpl implements EmailListDAO {
 		int updateCount = 0;
 		try (
 				Connection con = getConnection();
-				PreparedStatement pstmt = con.prepareStatement(INSERTSQL);
+				PreparedStatement pstmt = con.prepareStatement(UPDATESQL);
 		) {
-			
 			pstmt.setString(1, vo.getLastName());
 			pstmt.setString(2, vo.getFirstName());
 			pstmt.setString(3, vo.getEmail());
