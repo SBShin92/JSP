@@ -38,7 +38,7 @@
 		</tr>
 	</table>
 	<br>
-	<form action="<%= request.getContextPath() %>/update.jsp?no=<%= no %>" method="POST">
+	<form action="<%= request.getContextPath() %>/emaillist/update.jsp?no=<%= no %>" method="POST">
 		<label for="ln">성</label>
 		<input type="text" name="ln" value="<%= vo.getLastName() %>"><br />
 		<label for="fn">이름</label>

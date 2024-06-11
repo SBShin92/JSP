@@ -19,7 +19,7 @@ String sql = "SELECT last_name, first_name, email, no FROM emaillist ORDER BY cr
 </head>
 <body>
 	<a href="index.jsp">Model 1</a>
-	<a href="index2.jsp">Model 2</a>
+	<a href="/Emaillist/emaillist/index2.jsp">Model 2</a>
 	<hr>
 	<h1>메일링 리스트</h1>
 	<h3>Model 1 방식</h3>
@@ -79,7 +79,7 @@ try {
 }
 %>
 	<p>
-		<a href="<%= request.getContextPath() %>/form.jsp">추가 이메일 등록</a>
+		<a href="<%= request.getContextPath() %>/emaillist/form.jsp">추가 이메일 등록</a>
 	</p>
 	<script>
 
@@ -92,7 +92,7 @@ try {
 				if (confirm("정말로 삭제하시겠습니까?")) {
 					
 					const no = evt.target.dataset.no;
-					location.href="delete.jsp?no=" + no;
+					location.href="/Emaillist/emaillist/delete.jsp?no=" + no;
 				}
 			})
 		});
@@ -100,7 +100,7 @@ try {
 		updBtn.forEach((e) => {
 			e.addEventListener("click", (evt) => {
 				const no = evt.target.dataset.no;
-				location.href="update_form.jsp?no=" + no;
+				location.href="/Emaillist/emaillist/update_form.jsp?no=" + no;
 			});
 		})
 

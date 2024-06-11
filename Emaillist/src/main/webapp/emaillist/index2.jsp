@@ -22,7 +22,7 @@ String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
 <title>메일링 리스트:메인</title>
 </head>
 <body>
-	<a href="index.jsp">Model 1</a>
+	<a href="/Emaillist/index.jsp">Model 1</a>
 	<a href="index2.jsp">Model 2</a>
 	<hr>
 	<h1>메일링 리스트</h1>
@@ -65,7 +65,7 @@ for (EmailListVO node: lst) {
 }
 %>
 	<p>
-		<a href="<%= request.getContextPath() %>/form2.jsp">추가 이메일 등록</a>
+		<a href="<%= request.getContextPath() %>/emaillist/form2.jsp">추가 이메일 등록</a>
 	</p>
 	<script>
 

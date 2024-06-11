@@ -26,7 +26,7 @@ EmailListDAO dao = new EmailListDAOOracleImpl(dbuser, dbpass);
 boolean success = dao.insert(vo);
 
 if (success)
-	response.sendRedirect(request.getContextPath() + "/index2.jsp");
+	response.sendRedirect(request.getContextPath() + "/emaillist/index2.jsp");
 else {
 	%>
 	<h1>Error</h1>
