@@ -16,7 +16,7 @@
 	Long no = Long.parseLong(request.getParameter("no"));
 	GuestBookVO vo = dao.get(no);
 
-	if (password.equals(vo.getPassword())) {
+	if (vo.getPassword().equals("") || password.equals(vo.getPassword())) {
 		dao.delete(vo);
 		response.sendRedirect(request.getContextPath() + "/guestbook");
 	} else {

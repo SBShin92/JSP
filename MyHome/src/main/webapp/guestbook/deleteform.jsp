@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>방명록</title>
+<title>방명록</title>
 </head>
 <body>
 	<form method="post" action="delete.jsp?no=<%= request.getParameter("no") %>">
