@@ -15,23 +15,26 @@
 	href="<%= request.getContextPath() %>/css/guestbook.css"/>
 </head>
 <body>
-	<a href="<%= request.getContextPath() %>">메인으로 돌아가기</a>
-	<hr>
-	<form action="add.jsp" method="POST">
-	<table border=1 width=500>
-		<tr>
-			<td>이름</td><td><input type="text" name="name"></td>
-			<td>비밀번호</td><td><input type="password" name="pass"></td>
-		</tr>
-		<tr>
-			<td colspan=4><textarea name="content" cols=60 rows=5></textarea></td>
-		</tr>
-		<tr>
-			<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
-		</tr>
-	</table>
-	</form>
-	<br/>
+	<div style="position: sticky; top: 0; background: gray;">
+	  <a href="<%= request.getContextPath() %>">메인으로 돌아가기</a>
+	  <hr>
+	</div>
+	<div id="guestbook">
+		<form action="add.jsp" method="POST">
+		<table>
+			<tr>
+				<td>이름</td><td><input type="text" name="name"></td>
+				<td>비밀번호</td><td><input type="password" name="pass"></td>
+			</tr>
+			<tr>
+				<td colspan=4><textarea name="content" cols=60 rows=5></textarea></td>
+			</tr>
+			<tr>
+				<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
+			</tr>
+		</table>
+		</form>
+		<br/>
 
 <%
 String name = request.getParameter("name");
@@ -49,20 +52,21 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 
 for (GuestBookVO node: lst) {
 %>
-	<table width=510 border=1>
-		<tr>
-			<td><%= node.getNo() %></td>
-			<td><%= node.getName() %></td>
-			<td>생성일시: <%= sdf.format(node.getDate()) %></td>
-			<td><a href="deleteform.jsp?no=<%=node.getNo() %>">삭제</a></td>
-		</tr>
-		<tr>
-			<td colspan=4><%= node.getContent() %></td>
-		</tr>
-	</table>
-        <br/>
+		<table>
+			<tr>
+				<td><%= node.getNo() %></td>
+				<td><%= node.getName() %></td>
+				<td>생성일시: <%= sdf.format(node.getDate()) %></td>
+				<td><a href="deleteform.jsp?no=<%=node.getNo() %>">삭제</a></td>
+			</tr>
+			<tr>
+				<td colspan=4><%= node.getContent() %></td>
+			</tr>
+		</table>
+	        <br/>
 <%
 }
 %>
+	</div>
 </body>
 </html>
