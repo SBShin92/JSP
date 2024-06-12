@@ -7,7 +7,10 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
 
+
+@WebFilter(filterName = "EncodingFilter", urlPatterns = "/*")
 public class EncodingFilter implements Filter {
 
 	@Override
