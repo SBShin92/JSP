@@ -9,6 +9,7 @@
 <link type="text/css" 
 	rel="stylesheet" 
 	href="css/home.css"/>
+<link type="text/css" rel="stylesheet" href="css/mysite.css"/>
 </head>
 <body>
   <div id="container">
