@@ -8,7 +8,7 @@
 <!-- TODO: 현재 페이지에 적절한 CSS를 임포트하십시오. -->
 <link type="text/css" 
 	rel="stylesheet" 
-	href="<%= request.getContextPath() %>/css/home.css"/>
+	href="css/home.css"/>
 </head>
 <body>
   <div id="container">
