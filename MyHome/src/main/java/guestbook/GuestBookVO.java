@@ -1,5 +1,6 @@
 package guestbook;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,7 +9,7 @@ public class GuestBookVO {
 	private String name;
 	private String password;
 	private String content;
-	private Date date;
+	private Timestamp date;
 	public GuestBookVO() {
 		super();
 	}
@@ -20,7 +21,7 @@ public class GuestBookVO {
 	}
 	
 	
-	public GuestBookVO(Long no, String name, String password, String content, Date date) {
+	public GuestBookVO(Long no, String name, String password, String content, Timestamp date) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -54,10 +55,10 @@ public class GuestBookVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 	@Override
