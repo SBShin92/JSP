@@ -26,7 +26,7 @@ EmailListDAO dao = new EmailListDAOOracleImpl(dbuser, dbpass);
 boolean success = dao.insert(vo);
 
 if (success)
-	response.sendRedirect(request.getContextPath());
+	response.sendRedirect(request.getContextPath() + "/el");
 else {
 	%>
 	<h1>Error</h1>

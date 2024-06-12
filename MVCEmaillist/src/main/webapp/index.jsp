@@ -45,8 +45,8 @@ if (lst != null) {
 		</tr>
 		<tr>
 			<td colspan="2">
-				<button class="upd-btn" data-no="">수정</button>
-				<button class="del-btn" data-no="">삭제</button>
+				<button class="upd-btn" data-no="<%= node.getNo() %>">수정</button>
+				<button class="del-btn" data-no="<%= node.getNo() %>">삭제</button>
 			</td>
 		</tr>
 		
@@ -71,7 +71,7 @@ if (lst != null) {
 				if (confirm("정말로 삭제하시겠습니까?")) {
 					
 					const no = evt.target.dataset.no;
-					location.href="?no=" + no;
+					location.href = "<%= request.getContextPath() %>/emaillist/delete.jsp?no=" + no;
 				}
 			})
 		});
@@ -79,7 +79,7 @@ if (lst != null) {
 		updBtn.forEach((e) => {
 			e.addEventListener("click", (evt) => {
 				const no = evt.target.dataset.no;
-				location.href="<%= request.getContextPath() %>/emaillist/update_form.jsp?no=" + no;
+				location.href = "<%= request.getContextPath() %>/el?a=updateForm&no=" + no;
 			});
 		})
 		

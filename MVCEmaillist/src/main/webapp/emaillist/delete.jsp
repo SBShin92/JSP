@@ -19,7 +19,7 @@ try {
 	pstmt.setLong(1, no);
 	int deleteCount = pstmt.executeUpdate();
 	if (deleteCount == 1)
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(request.getContextPath() + "/el");
 	else {
 		%>
 		<h1>Error</h1>

@@ -21,7 +21,11 @@ public class EmaillistServlet extends BaseServlet {
 		if ("form".equals(actionName)) {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/views/emaillist/form.jsp");
 			rd.forward(req, resp);
-		} else {
+		} else if ("updateForm".equals(actionName)) {
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/views/emaillist/update_form.jsp");
+			rd.forward(req, resp);					
+		}
+		else {
 			EmailListDAO dao = new EmailListDAOOracleImpl(dbuser, dbpass);
 			List<EmailListVO> lst = dao.getList();
 
@@ -29,6 +33,25 @@ public class EmaillistServlet extends BaseServlet {
 			RequestDispatcher rd = getServletContext()
 					.getRequestDispatcher("/");
 			rd.forward(req, resp);
+		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String actionName = req.getParameter("a");
+		if ("insert".equals(actionName)) {
+			String lastName = req.getParameter("ln");
+			String firstName = req.getParameter("fn");
+			String email = req.getParameter("email");
+			
+			EmailListVO vo = new EmailListVO(lastName, firstName, email);
+			EmailListDAO dao = new EmailListDAOOracleImpl(dbuser, dbpass);
+
+			boolean success = dao.insert(vo);
+
+			if (success)
+				resp.sendRedirect(req.getContextPath() + "/el");
 		}
 	}	
 }
