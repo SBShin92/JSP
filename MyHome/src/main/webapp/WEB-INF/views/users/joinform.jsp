@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>My Home: Join Form</title>
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/users.css">
 
 </head>
 <body>
 	<div id="container">
+		<jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
 		<div id="content">
-			<jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
-			<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
 
 			<h1>Join Form</h1>
 			<form method="POST" action="<%=request.getContextPath()%>/users">
@@ -24,8 +24,8 @@
 					type="radio" name="gender" value="F">여성 <input
 					type="submit" value="가입" />
 			</form>
-			<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
 		</div>
+		<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

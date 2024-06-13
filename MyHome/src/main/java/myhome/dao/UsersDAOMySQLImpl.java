@@ -112,10 +112,14 @@ public class UsersDAOMySQLImpl implements UsersDAO{
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 		) {
-			pstmt.setString(1, vo.getName());
-			pstmt.setString(2, vo.getPassword());
-			pstmt.setString(3, vo.getEmail());
-			pstmt.setString(4, vo.getGender());
+			if (!"".equals(vo.getName()))
+				pstmt.setString(1, vo.getName());
+			if (!"".equals(vo.getPassword()))
+				pstmt.setString(2, vo.getPassword());
+			if (!"".equals(vo.getEmail()))
+				pstmt.setString(3, vo.getEmail());
+			if (!"".equals(vo.getGender()))
+				pstmt.setString(4, vo.getGender());
 			insertCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.err.println("INSERT 실패");

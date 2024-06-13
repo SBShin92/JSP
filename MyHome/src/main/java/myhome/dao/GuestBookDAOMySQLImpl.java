@@ -1,4 +1,4 @@
-package guestbook.dao;
+package myhome.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import guestbook.vo.GuestBookVO;
+import myhome.vo.GuestBookVO;
 
 public class GuestBookDAOMySQLImpl implements GuestBookDAO{
 	private String dbuser;

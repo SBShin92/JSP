@@ -2,14 +2,14 @@ package controller;
 
 import java.io.IOException;
 
-import guestbook.dao.GuestBookDAO;
-import guestbook.dao.GuestBookDAOMySQLImpl;
-import guestbook.vo.GuestBookVO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import myhome.dao.GuestBookDAO;
+import myhome.dao.GuestBookDAOMySQLImpl;
+import myhome.vo.GuestBookVO;
 
 @WebServlet(name = "GroupBook", urlPatterns = "/guestbook")
 public class GuestBookServlet extends BaseServlet {

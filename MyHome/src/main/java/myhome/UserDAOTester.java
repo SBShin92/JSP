@@ -7,7 +7,7 @@ import myhome.dao.UsersDAO;
 import myhome.dao.UsersDAOMySQLImpl;
 import myhome.vo.UserVO;
 
-public class Tester {
+public class UserDAOTester {
 	public static void main(String[] args) {
 		//	목록 출력
 		list();

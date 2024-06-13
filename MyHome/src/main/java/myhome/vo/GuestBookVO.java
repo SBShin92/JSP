@@ -1,4 +1,4 @@
-package guestbook.vo;
+package myhome.vo;
 
 import java.sql.Timestamp;
 import java.util.Objects;
