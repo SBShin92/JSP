@@ -1,18 +1,19 @@
-﻿<%@page import="guestbook.GuestBookDAOMySQLImpl"%>
+﻿<%@page import="guestbook.dao.GuestBookDAOMySQLImpl"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="guestbook.GuestBookVO"%>
+<%@page import="guestbook.vo.GuestBookVO"%>
 <%@page import="java.util.List"%>
-<%@page import="guestbook.GuestBookDAO"%>
+<%@page import="guestbook.dao.GuestBookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>방명록</title>
-<link type="text/css" 
-	rel="stylesheet" 
-	href="<%= request.getContextPath() %>/css/guestbook.css"/>
+<link type="text/css" rel="stylesheet" href="css/mysite.css"/>
+<link type="text/css" rel="stylesheet" href="css/guestbook.css"/>
 </head>
 <body>
 	<div style="position: sticky; top: 0; background: gray;">
@@ -20,7 +21,7 @@
 	  <hr>
 	</div>
 	<div id="guestbook">
-		<form action="<%= request.getContextPath() %>/gb" method="POST">
+		<form action="<%= request.getContextPath() %>/guestbook" method="POST">
 		<input type="hidden" name="a" value="add">
 		<table>
 			<tr>
@@ -49,6 +50,8 @@ String dbpass = servletContext.getInitParameter("dbpass");
 
 GuestBookDAO dao = new GuestBookDAOMySQLImpl(dbuser, dbpass);
 List<GuestBookVO> lst = dao.getList();
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ahh:mm:ss");
+
 
 for (GuestBookVO node: lst) {
 %>
@@ -56,7 +59,7 @@ for (GuestBookVO node: lst) {
 			<tr>
 				<td><%= node.getNo() %></td>
 				<td><%= node.getName() %></td>
-				<td>생성일시: <%= node.getDate() %></td>
+				<td>생성일시: <%= sdf.format(node.getDate()) %></td>
 				<td><a href="gb?a=delete&no=<%=node.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>

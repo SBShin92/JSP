@@ -1,7 +1,6 @@
-package guestbook;
+package guestbook.vo;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Objects;
 
 public class GuestBookVO {

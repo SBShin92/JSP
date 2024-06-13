@@ -6,12 +6,12 @@
 <title>방명록</title>
 <link type="text/css" 
 	rel="stylesheet" 
-	href="<%= request.getContextPath() %>/css/guestbook.css"/>
+	href="css/guestbook.css"/>
 
 </head>
 <body>
 	<div id="guestbook" class="delete-form">
-		<form action="<%= request.getContextPath() %>/gb" method="POST">
+		<form action="<%= request.getContextPath() %>/guestbook" method="POST">
 		<input type="hidden" name="no" value="<%= request.getParameter("no") %>">
 		<input type="hidden" name="a" value="delete">
 		<table>
@@ -19,7 +19,7 @@
 				<td>비밀번호</td>
 				<td><input type="password" name="password"></td>
 				<td><input type="submit" value="확인"></td>
-				<td><a href="<%= request.getContextPath() %>/gb">삭제 취소</a></td>
+				<td><a href="<%= request.getContextPath() %>/guestbook">삭제 취소</a></td>
 			</tr>
 		</table>
 		</form>

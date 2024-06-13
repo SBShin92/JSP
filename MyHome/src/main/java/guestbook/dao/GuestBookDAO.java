@@ -1,6 +1,8 @@
-package guestbook;
+package guestbook.dao;
 
 import java.util.List;
+
+import guestbook.vo.GuestBookVO;
 
 public interface GuestBookDAO {
 
