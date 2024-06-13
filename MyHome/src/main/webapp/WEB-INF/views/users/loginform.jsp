@@ -16,7 +16,7 @@
 		<jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
 		<div id="content">
 			<h1>Login</h1>
-			<form method="POST" action="">
+			<form method="POST" action="users">
 				<input type="hidden" name="a" value="login" /> <label for="email">이메일</label>
 				<input type="text" name="email" /><br> <label for="password">Password</label>
 				<input type="password" name="password" /><br /> <input
