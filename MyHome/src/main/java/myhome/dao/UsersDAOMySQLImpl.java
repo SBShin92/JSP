@@ -174,23 +174,23 @@ public class UsersDAOMySQLImpl implements UsersDAO{
 
 	
 	// method for get ResultSet with id parameter
-	private ResultSet executeQuery(PreparedStatement pstmt, Long userNo, String inputPassword) throws SQLException {
-		pstmt.setLong(1, userNo);
+	private ResultSet executeQuery(PreparedStatement pstmt, String inputEmail, String inputPassword) throws SQLException {
+		pstmt.setString(1, inputEmail);
 		pstmt.setString(2, inputPassword);
 		return pstmt.executeQuery();
 		}
 	@Override
-	public UserVO getUserIdAndPassword(Long userNo, String inputPassword) {
+	public UserVO getUserIdAndPassword(String inputEmail, String inputPassword) {
 		UserVO tmp = null;
 		String sql = """
 				SELECT no, name, password, email, gender, created_at
 				FROM users
-				WHERE no = ? AND password = ?
+				WHERE email = ? AND password = ?
 				""";
 		try (
 				Connection con = getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
-				ResultSet rs = executeQuery(pstmt, userNo, inputPassword);
+				ResultSet rs = executeQuery(pstmt, inputEmail, inputPassword);
 		) {
 			if (rs.next()) {
 				Long no = rs.getLong("no");

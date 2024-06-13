@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Home: Join Success</title>
+<title>My Home: Log in Success</title>
 <link rel="stylesheet" href="css/users2.css">
 </head>
 <body>
-	<h1>Join Success</h1>
-	<p>가입에 성공하셨습니다</p>
+	<h1>Log in Success</h1>
+	<p>어서오세요. 로그인 완료!</p>
 </body>
 </html>
 

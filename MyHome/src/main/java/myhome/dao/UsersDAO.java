@@ -10,5 +10,5 @@ public interface UsersDAO {
 	public boolean insert(UserVO vo);
 	public boolean update(UserVO vo);
 	public boolean delete(UserVO vo);
-	public UserVO getUserIdAndPassword(Long userNo, String inputPassword);
+	public UserVO getUserIdAndPassword(String inputEmail, String inputPassword);
 }

@@ -4,33 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My Homepage</title>
-<!-- TODO: 현재 페이지에 적절한 CSS를 임포트하십시오. -->
-<link type="text/css" 
-	rel="stylesheet" 
-	href="css/home.css"/>
-<link type="text/css" rel="stylesheet" href="css/mysite.css"/>
+<title>sashin92's Page</title>
+<link type="text/css" rel="stylesheet" href="css/home.css"/>
 </head>
 <body>
   <div id="container">
-    <div id="header">
-      <h1>My Homepage</h1>
-    </div> <!-- /header -->
-    <div id="navigation">
-      <ul>
-        <li><a href="<%= request.getContextPath() %>/">My Home</a></li>
-        <li><a href="<%= request.getContextPath() %>/guestbook">방명록</a></li>
-        <li><a href="<%= request.getContextPath() %>/board">게시판</a></li>
-      </ul>
-	</div>
+    <jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
+    
+    <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
 	<div id="wrapper">
       <div id="content">
-			<!-- Content 영역 -->
+		<!-- Content 영역 -->
+		
       </div>
 	</div>
-	<div id="footer">
-      <p>Copyright(c) 2024 신상범 All rights reserved. </p>
-	</div>
+	<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
   </div>
 </body>
 </html>

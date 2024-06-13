@@ -1,29 +1,64 @@
 @CHARSET "UTF-8";
 @import "mysite.css";
 
-#guestbook			{ margin:20px auto;	width:540px; }
-
-#guestbook form, 
-#guestbook table	{ width:100% }
-
-#guestbook table,	
-#guestbook table td { border:1px solid #333 }
-#guestbook table td { padding:5px }
-
-#guestbook ul		{ width:100%; margin-top:20px }
-#guestbook ul li	{ width:100%; margin-top:10px }
-
-
-#guestbook.delete-form	{ height:200px }
-#guestbook.delete-form form {
-	width:500px;
-	padding:10px;
-	border:1px solid #666;
-	border-radius: 10px;
-	margin:50px auto;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
-#guestbook.delete-form a	{ display:block; margin:20px auto; width:110px }
 
-#guestbook.delete-message p	{ padding:100px; height:50px; text-align:center }
+#guestbook {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-#guestbook textarea#content	{ width: 100%; border:none; height: 100px; resize: none; outline: none; }
+#guestbook table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#guestbook td, #guestbook th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#guestbook tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#guestbook tr:hover {
+    background-color: #ddd;
+}
+
+#guestbook input[type="text"], #guestbook input[type="password"], #guestbook textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#guestbook input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#guestbook input[type="submit"]:hover {
+    background-color: #45a049;
+}

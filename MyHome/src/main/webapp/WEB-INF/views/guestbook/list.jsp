@@ -15,6 +15,7 @@
 <link type="text/css" rel="stylesheet" href="css/mysite.css"/>
 <link type="text/css" rel="stylesheet" href="css/guestbook.css"/>
 </head>
+
 <body>
 	<div style="position: sticky; top: 0; background: gray;">
 	  <a href="<%= request.getContextPath() %>">메인으로 돌아가기</a>
@@ -60,7 +61,7 @@ for (GuestBookVO node: lst) {
 				<td><%= node.getNo() %></td>
 				<td><%= node.getName() %></td>
 				<td>생성일시: <%= sdf.format(node.getDate()) %></td>
-				<td><a href="gb?a=delete&no=<%=node.getNo() %>">삭제</a></td>
+				<td><a href="guestbook?a=delete&no=<%=node.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>
 				<td colspan=4><%= node.getContent() %></td>
