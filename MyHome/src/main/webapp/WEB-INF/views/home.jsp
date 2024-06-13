@@ -18,7 +18,16 @@
 				<h1> 환영합니다. sashin92의 페이지 입니다. </h1>
 				<br/>
 				<p>페이지 작성 중입니다...</p>
-				<a href="<%= request.getContextPath() %>/users">로그인</a>
+				<div class="button-container">
+					<form method="GET" action="users">
+						<input type="hidden" name="a" value="loginform">
+						<input type="submit" value="로그인" class="submit-button" />
+					</form>
+					<form method="GET" action="users">
+						<input type="hidden" name="a" value="joinform">
+						<input type="submit" value="가입하기" class="submit-button" />
+					</form>
+				</div>
 			</div>
 		</div>
 		<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

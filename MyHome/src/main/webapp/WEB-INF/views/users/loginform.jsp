@@ -20,17 +20,8 @@
 				<input type="hidden" name="a" value="login" /> <label for="email">이메일</label>
 				<input type="text" name="email" /><br> <label for="password">Password</label>
 				<input type="password" name="password" /><br /> <input
-					type="submit" value="전송" />
+					type="submit" value="로그인" />
 			</form>
-
-
-			<div class="button-container">
-				<form method="GET" action="">
-					<input type="hidden" name="a" value="joinform"> <input
-						type="submit" value="가입하기" class="submit-button" />
-				</form>
-			</div>
-
 		</div>
 		<jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
 	</div>
