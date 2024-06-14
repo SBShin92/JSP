@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+<%
+String errorMsg = (String)request.getAttribute("errorMsg");
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,6 +17,13 @@ pageEncoding="UTF-8"%>
       <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
       <div id="join-form">
         <h1>Join Form</h1>
+        <%
+        if (errorMsg != null) {
+        %>
+        <p style="color:red; fonte-weight:bold;"><%= errorMsg %></p>
+        <%  
+        }
+        %>
         <form method="POST" action="<%=request.getContextPath()%>/users">
           <input type="hidden" name="a" value="join" />
           <label for="name">이름</label> <input type="text" name="name" /><br />

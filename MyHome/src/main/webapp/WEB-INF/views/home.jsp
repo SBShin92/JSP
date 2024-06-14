@@ -1,5 +1,11 @@
+<%@page import="myhome.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page session="true" %>
+
+<%
+UserVO vo = (UserVO)session.getAttribute("authUser");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,20 +21,8 @@
 		<div id="wrapper">
 			<div id="site-introduction">
 				<!-- content 영역 -->
-				<h1> 환영합니다. sashin92의 페이지 입니다. </h1>
-				<h2>페이지 작성 중입니다...</h2>
-        <p>
-				<div class="button-container">
-					<form method="GET" action="users">
-						<input type="hidden" name="a" value="loginform">
-						<input type="submit" value="로그인" class="submit-button" />
-					</form>
-					<form method="GET" action="users">
-						<input type="hidden" name="a" value="joinform">
-						<input type="submit" value="가입하기" class="submit-button" />
-					</form>
-				</div>
-        </p>
+				<h2>환영합니다<% if (vo != null) out.print(" " + vo.getName() + "님"); %>.</h2>
+				<p>세션을 이용한 로그인 유지기능까지 구현했습니다.</p>
 			</div>
 		</div>
 		<%@ include file="/WEB-INF/views/includes/footer.jsp"%>
