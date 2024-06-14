@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
     <div id="container">
       <jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
       <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
-      <div id="content">
+      <div id="login-form">
         <h1>Login</h1>
         <form method="POST" action="users">
           <input type="hidden" name="a" value="login" />

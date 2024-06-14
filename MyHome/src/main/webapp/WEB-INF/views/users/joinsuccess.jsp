@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
     <div id="container">
       <jsp:include page="/WEB-INF/views/includes/header.jsp"></jsp:include>
       <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
-      <div id="content">
+      <div id="join-form">
         <h1>Join Success</h1>
         <p>가입에 성공하셨습니다</p>
       </div>
