@@ -20,7 +20,7 @@ String errorMsg = (String)request.getAttribute("errorMsg");
         <%
         if (errorMsg != null) {
         %>
-        <p style="color:red; fonte-weight:bold;"><%= errorMsg %></p>
+        <p style="color:red; font-weight:bold;"><%= errorMsg %></p>
         <%  
         }
         %>
@@ -34,7 +34,7 @@ String errorMsg = (String)request.getAttribute("errorMsg");
           <label for="gender">성별</label>
           <input type="radio" name="gender" value="M" checked />남성
           <input type="radio" name="gender" value="F" />여성
-          <input type="submit" value="가입" />
+          <input type="submit" value="Sign up" />
         </form>
       </div>
       <jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>

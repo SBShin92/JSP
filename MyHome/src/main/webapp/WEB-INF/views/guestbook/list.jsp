@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="myhome.dao.GuestBookDAOMySQLImpl"%> <%@page
 import="java.text.SimpleDateFormat"%> <%@page import="java.util.Date"%> <%@page
 import="myhome.vo.GuestBookVO"%> <%@page import="java.util.List"%> <%@page
@@ -29,7 +30,7 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
               </tr>
               <tr>
                 <td colspan="4">
-                  <textarea name="content" cols="60" rows="5"></textarea>
+                  <textarea name="content" cols="50" rows="5"></textarea>
                 </td>
               </tr>
               <tr>
@@ -55,13 +56,21 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ahh:mm:ss");
 
             for (GuestBookVO node : lst) {
+            	Calendar calendar = Calendar.getInstance();
+            	calendar.setTime(node.getDate());
+
+            	// 8시간을 추가합니다.
+            	calendar.add(Calendar.HOUR_OF_DAY, 9);
+
+            	// Calendar 객체를 다시 Date 객체로 변환합니다.
+            	Date korDate = calendar.getTime();
 				  %>
 
           <table>
             <tr>
               <td><%=node.getNo()%></td>
               <td><%=node.getName()%></td>
-              <td>생성일시: <%=sdf.format(node.getDate())%></td>
+              <td><%=sdf.format(korDate)%></td>
               <td>
                 <a href="guestbook?a=delete&no=<%=node.getNo()%>">삭제</a>
               </td>
