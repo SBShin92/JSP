@@ -29,7 +29,7 @@
         </c:if>
         </h2>
 				<p>세션을 이용한 로그인 유지기능까지 구현했습니다.</p>
-        <p>scriptlet을 jstl로 대체중입니다.</p>
+        <p>scriptlet을 jstl로 대체했습니다.</p>
 			</div>
 		</div>
 		<%@ include file="/WEB-INF/views/includes/footer.jsp"%>
