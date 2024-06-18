@@ -19,18 +19,24 @@
 	String str = (String)request.getAttribute("str");
 	%>
 	name = <%=userVo.getName()%> <br/>
-    email = <%=userVo.getEmail() %> <br/>
-    password = <%=userVo.getPassword() %> <br/>
+  email = <%=userVo.getEmail() %> <br/>
+  password = <%=userVo.getPassword() %> <br/>
 	gender = <%=userVo.getGender() %> <br/> 
 	
 	num = <%=num %> <br/>
 	str = <%=str %>	<br/>
 	
 	
-	
 	<h2>el</h2>                 
 
-
+	${ requestScope.userVo } <br/>
+  
+  <h4>Scope는 생략가능하다.</h4>
+	${ userVo } <br/>
+	${ userVo.name } <br/>
+  ${ sessionUser } <br/>
+  ${ applicationUser } <br/>
+  
 	
 	
 </body>

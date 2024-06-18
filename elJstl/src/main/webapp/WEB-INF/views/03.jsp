@@ -16,8 +16,11 @@
 	String id= request.getParameter("id");
 	String pw= request.getParameter("pw");
 	String name= request.getParameter("name");
-	int num1 = Integer.parseInt(request.getParameter("num1"));
-	int num2 = Integer.parseInt(request.getParameter("num2"));
+  int num1 = 0, num2 = 0;
+  if (!request.getParameter("num1").isEmpty())
+	    num1 = Integer.parseInt(request.getParameter("num1"));
+  if (!request.getParameter("num2").isEmpty())
+	    num2 = Integer.parseInt(request.getParameter("num2"));
 	%>
 		
 		
@@ -26,11 +29,24 @@
     name = <%=name %> <br/>
 	<%=num1 + num2 %> <br/><br/><br/>
 		
-		
+
 	<h2>el parameter값 꺼내쓰기</h2>
-	
-
-
+	id = ${ param.id }<br/>
+	pw = ${ param.pw }<br/>
+	name = ${ param.name }<br/>
+	num1 = ${ param.num1 }<br/>
+	num2 = ${ param.num2 }<br/>
+  num1 + num2 = ${ param.num1 + param.num2 }<br/>
+  
+	<h2>el attribute값 꺼내쓰기</h2>
+	id = ${ id }<br/>
+	pw = ${ pw }<br/>
+	name = ${ name }<br/>
+	num1 = ${ num1 }<br/>
+	num2 = ${ num2 }<br/>
+  num1 + num2 = ${ num1 + num2 }<br/>
+  
+  
 
 	<br/>	
 		

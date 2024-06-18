@@ -6,6 +6,7 @@
 	application.setAttribute("name", "application name");
 %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,13 +18,13 @@
 	
 	<h2>자바문법</h2>
 	page name = <%=pageContext.getAttribute("name") %> <br/>
-    request name = <%=request.getAttribute("name") %> <br/>
-    session name = <%=session.getAttribute("name") %> <br/>
-    application name = <%=application.getAttribute("name") %> <br/>
-	
+  request name = <%=request.getAttribute("name") %> <br/>
+  session name = <%=session.getAttribute("name") %> <br/>
+  application name = <%=application.getAttribute("name") %> <br/>
+
 	<h2>el</h2>                   
 	
-
+  ${ name } <br/>
 
 
 
