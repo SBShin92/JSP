@@ -4,9 +4,6 @@
 <%@ page session="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-UserVO vo = (UserVO)session.getAttribute("authUser");
-%>
 <!DOCTYPE html>
 <html>
 <head>
