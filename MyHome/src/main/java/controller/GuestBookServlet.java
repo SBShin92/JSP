@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -22,6 +23,10 @@ public class GuestBookServlet extends BaseServlet {
 					.getRequestDispatcher("/WEB-INF/views/guestbook/deleteform.jsp");
 			rd.forward(req, resp);
 		} else {
+			GuestBookDAO dao = new GuestBookDAOMySQLImpl(dbuser, dbpass);
+			List<GuestBookVO> lst = dao.getList();
+			req.setAttribute("guestbookList", lst);
+			
 			RequestDispatcher rd = getServletContext()
 					.getRequestDispatcher("/WEB-INF/views/guestbook/list.jsp");
 			rd.forward(req, resp);			
@@ -43,10 +48,7 @@ public class GuestBookServlet extends BaseServlet {
 			if (vo.getPassword().equals("") || password.equals(vo.getPassword())) {
 				dao.delete(vo);
 			}
-			
-			RequestDispatcher rd = getServletContext()
-					.getRequestDispatcher("/WEB-INF/views/guestbook/list.jsp");
-			rd.forward(req, resp);
+			resp.sendRedirect(req.getContextPath() + "/guestbook");
 		} else if ("add".equals(actionName)) {
 			String name = req.getParameter("name");
 			if (name.equals(""))
@@ -55,12 +57,9 @@ public class GuestBookServlet extends BaseServlet {
 			String content = req.getParameter("content");
 			
 			GuestBookVO vo = new GuestBookVO(name, pass, content);
-
-			boolean success = dao.insert(vo);
+			dao.insert(vo);
 			
-			RequestDispatcher rd = getServletContext()
-					.getRequestDispatcher("/WEB-INF/views/guestbook/list.jsp");
-			rd.forward(req, resp);
+			resp.sendRedirect(req.getContextPath() + "/guestbook");
 		}
 	}
 }

@@ -1,9 +1,5 @@
-<%@page import="java.util.Calendar"%>
-<%@page import="myhome.dao.GuestBookDAOMySQLImpl"%> <%@page
-import="java.text.SimpleDateFormat"%> <%@page import="java.util.Date"%> <%@page
-import="myhome.vo.GuestBookVO"%> <%@page import="java.util.List"%> <%@page
-import="myhome.dao.GuestBookDAO"%> <%@ page language="java"
-contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +15,7 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
       <div id="content">
         <div id="guestbook">
-          <form action="<%=request.getContextPath()%>/guestbook" method="POST">
+          <form action="<c:url value='/guestbook' />" method="POST">
             <input type="hidden" name="a" value="add" />
             <table>
               <tr>
@@ -41,49 +37,30 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             </table>
           </form>
           <br />
-
-          <%
-            String name = request.getParameter("name");
-            String pass = request.getParameter("pass");
-            String content = request.getParameter("content");
-
-            ServletContext servletContext = getServletContext();
-            String dbuser = servletContext.getInitParameter("dbuser");
-            String dbpass = servletContext.getInitParameter("dbpass");
-
-            GuestBookDAO dao = new GuestBookDAOMySQLImpl(dbuser, dbpass);
-            List<GuestBookVO> lst = dao.getList();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ahh:mm:ss");
-
-            for (GuestBookVO node : lst) {
-            	Calendar calendar = Calendar.getInstance();
-            	calendar.setTime(node.getDate());
-
-            	// 8시간을 추가합니다.
-            	calendar.add(Calendar.HOUR_OF_DAY, 9);
-
-            	// Calendar 객체를 다시 Date 객체로 변환합니다.
-            	Date korDate = calendar.getTime();
-				  %>
-
-          <table>
-            <tr>
-              <td><%=node.getNo()%></td>
-              <td><%=node.getName()%></td>
-              <td><%=sdf.format(korDate)%></td>
-              <td>
-                <a href="guestbook?a=delete&no=<%=node.getNo()%>">삭제</a>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4"><%=node.getContent()%></td>
-            </tr>
-          </table>
-          <br />
-          <% } %>
+          
+          <c:forEach items="${ requestScope.guestbookList }" var="vo">
+            <table>
+              <tr>
+                <td>${ vo.no }</td>
+                <td>${ vo.name }</td>
+                <td>${ vo.date }</td>
+                <td>
+                  <form action="<c:url value='/guestbook' />" method="get">
+                    <input type="hidden" name="a" value="delete" />
+                    <input type="hidden" name="no" value="${ vo.no }" />
+                    <button type="submit">삭제</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4">${ vo.content }</td>
+              </tr>
+            </table>
+            <br />
+          </c:forEach>
         </div>
       </div>
-      <jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+      <%@ include file="/WEB-INF/views/includes/footer.jsp"%>
     </div>
   </body>
 </html>
