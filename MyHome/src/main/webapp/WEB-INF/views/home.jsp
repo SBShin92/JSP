@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page session="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
 UserVO vo = (UserVO)session.getAttribute("authUser");
@@ -21,7 +22,11 @@ UserVO vo = (UserVO)session.getAttribute("authUser");
 		<div id="wrapper">
 			<div id="site-introduction">
 				<!-- content 영역 -->
-				<h2>환영합니다<% if (vo != null) out.print(" " + vo.getName() + "님"); %>.</h2>
+				<h2>환영합니다
+        <c:if test="${ not empty authUser }">
+          <c:out value=" ${ authUser.name }님."/>
+        </c:if>
+        </h2>
 				<p>세션을 이용한 로그인 유지기능까지 구현했습니다.</p>
 			</div>
 		</div>
