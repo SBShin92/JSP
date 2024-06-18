@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
         <h1>Join Success</h1>
         <p>가입에 성공하셨습니다</p>
       </div>
-      <jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+      <%@ include file="/WEB-INF/views/includes/footer.jsp"%>
     </div>
   </body>
 </html>

@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@ page session="true" %>
-<%
-String errorMsg = (String)request.getAttribute("errorMsg");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,14 +16,11 @@ String errorMsg = (String)request.getAttribute("errorMsg");
       <jsp:include page="/WEB-INF/views/includes/navigation.jsp"></jsp:include>
       <div id="join-form">
         <h1>Join Form</h1>
-        <%
-        if (errorMsg != null) {
-        %>
-        <p style="color:red; font-weight:bold;"><%= errorMsg %></p>
-        <%  
-        }
-        %>
-        <form method="POST" action="<%=request.getContextPath()%>/users">
+        
+        <c:if test="${ not empty requestScope.errorMsg }">
+          <p style="color:red; fonte-weight:bold;">${ requestScope.errorMsg }</p>
+        </c:if>
+        <form method="POST" action="<c:url value='/users' />">
           <input type="hidden" name="a" value="join" />
           <label for="name">이름</label> <input type="text" name="name" /><br />
           <label for="password">암호</label>
@@ -37,7 +33,7 @@ String errorMsg = (String)request.getAttribute("errorMsg");
           <input type="submit" value="Sign up" />
         </form>
       </div>
-      <jsp:include page="/WEB-INF/views/includes/footer.jsp"></jsp:include>
+      <%@ include file="/WEB-INF/views/includes/footer.jsp"%>
     </div>
   </body>
 </html>
